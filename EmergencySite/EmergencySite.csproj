@@ -169,6 +169,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CustomOTPMailPage.html" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -304,7 +305,9 @@
       <DependentUpon>202104150958062_AddAppSettingAndMessageTableToDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\AddContextRepositories\ContextAppSettingRepository.cs" />
     <Compile Include="Persistence\AddContextRepositories\ContextMessageRepository.cs" />
+    <Compile Include="Persistence\AddContextRepositories\ContextLoginRepository.cs" />
     <Compile Include="Persistence\CoronaDbContext.cs" />
     <Compile Include="Persistence\Repository\AppSettingRepository.cs" />
     <Compile Include="Persistence\Repository\LoginRepository.cs" />

@@ -10,20 +10,22 @@ namespace EmergencySite.Persistence.AddContextRepositories
 {
     public class ContextMessageRepository
     {
-        private readonly CoronaDbContext context;
+        public readonly CoronaDbContext context;
 
         public ContextMessageRepository()
         {
             context = new CoronaDbContext();
         }
-        public async Task<LoginType> FindByUserName(string userId)
-            => await context.Logins
-                .Select(l => new LoginType
+        public async Task<MessageType> FindByOTP(string otp)
+        {
+            return await context.Messages
+                .Select(m => new MessageType
                 {
-                    LoginId = l.LoginId,
-                    UserName = l.Username,
-                    EncryptedPassword = l.EncryptedPassword
+                    MessageId = m.MessageId,
+                    CreatedAt = m.CreatedAt,
+                    Content = m.Content
                 })
-                .SingleOrDefaultAsync(l => l.UserName == userId);
+                .SingleOrDefaultAsync(m => m.Content == otp);
+        }
     }
 }

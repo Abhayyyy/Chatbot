@@ -13,10 +13,10 @@ namespace EmergencySite
 {
     public partial class _Default : Page
     {
-        private readonly ContextMessageRepository loginRepository;
+        private readonly ContextLoginRepository loginRepository;
         public _Default()
         {
-            loginRepository = new ContextMessageRepository();
+            loginRepository = new ContextLoginRepository();
         }
         protected void Page_Load(object sender, EventArgs e)
         {

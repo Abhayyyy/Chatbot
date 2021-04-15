@@ -2,6 +2,7 @@
 using EmergencySite.ClassLibraries.Models.Email;
 using EmergencySite.Core;
 using EmergencySite.Core.Functions;
+using EmergencySite.Persistence.AddContextRepositories;
 using System;
 using System.Collections;
 using System.IO;
@@ -11,10 +12,16 @@ namespace EmergencySite.Authenticate
 {
     public partial class _2FactorAuthentication : Page
     {
-        private readonly IUnitOfWork unitOfWork;
-        public _2FactorAuthentication(IUnitOfWork unitOfWork)
+        //private readonly IUnitOfWork unitOfWork;
+        private readonly ContextAppSettingRepository appSettingRepository;
+        private readonly ContextLoginRepository loginRepository;
+        private readonly ContextMessageRepository messageRepository;
+
+        public _2FactorAuthentication()
         {
-            this.unitOfWork = unitOfWork;
+            appSettingRepository = new ContextAppSettingRepository();
+            loginRepository = new ContextLoginRepository();
+            messageRepository = new ContextMessageRepository();
         }
 
         protected async void Page_Load(object sender, EventArgs e)
@@ -23,7 +30,7 @@ namespace EmergencySite.Authenticate
 
             if (Session["UserId"] == null)
             {
-                Response.Redirect("~/Login.aspx", false);
+                Response.Redirect("~/Default.aspx", false);
                 return;
             }
 
@@ -31,16 +38,16 @@ namespace EmergencySite.Authenticate
 
             if (Convert.ToBoolean(Session["IsVerified"]))
             {
-                Response.Redirect("~/Default.aspx", false);
+                Response.Redirect("~/LandingPage.aspx", false);
                 return;
             }
 
-            var appsetting = await unitOfWork.AppSettings.GetAppSetting();
+            var appsetting = await appSettingRepository.GetAppSetting();
             if (appsetting == null) return;
 
             if (!appsetting.SFAuthentication)
             {
-                Response.Redirect("~/Default.aspx", false);
+                Response.Redirect("~/LandingPage.aspx", false);
                 return;
             }
         }
@@ -59,7 +66,7 @@ namespace EmergencySite.Authenticate
 
         protected async void btnAuthVerify_Click(object sender, EventArgs e)
         {
-            var content = await unitOfWork.Messages.FindByOTP(txtTwoFactorAuth.Text.Trim());
+            var content = await messageRepository.FindByOTP(txtTwoFactorAuth.Text.Trim());
             if (content == null)
             {
                 ScriptManager.RegisterStartupScript(btnSendOTP, GetType(), "JSCR",
@@ -100,7 +107,7 @@ namespace EmergencySite.Authenticate
 
             // Code for checking user existence.
             var userId = txtUsername.Text.Trim();
-            var loginType = await unitOfWork.Logins.FindByUserName(userId);
+            var loginType = await loginRepository.FindByUserName(userId);
             if (loginType == null)
             {
                 ScriptManager.RegisterStartupScript(btnSendOTP, GetType(), "JSCR",
@@ -129,9 +136,9 @@ namespace EmergencySite.Authenticate
                 Content = otp
             };
 
-            unitOfWork.Messages.Add(message);
+            messageRepository.context.Messages.Add(message);
 
-            await unitOfWork.CompleteAsync();
+            messageRepository.context.SaveChanges();
 
             var status = isSent ? "success" : "failure";
             var response = new { status, dateTime };
@@ -139,7 +146,7 @@ namespace EmergencySite.Authenticate
             ScriptManager.RegisterStartupScript(btnSendOTP, GetType(), "JSCR",
                                                     "alert('The OTP has been sent and will expire in 10 minutes.');", true);
 
-            await unitOfWork.CompleteAsync();
+            messageRepository.context.SaveChanges();
         }
     }
 }
