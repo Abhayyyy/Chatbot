@@ -7,65 +7,83 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EmergencySite
+namespace EmergencySite.Authenticate
 {
 
 
-    public partial class _Default
+    public partial class _2FactorAuthentication
     {
 
         /// <summary>
-        /// UserId control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UserId;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// txtUsernameId control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsernameId;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
-        /// PasswordId control.
+        /// btnSendOTP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordId;
+        protected global::System.Web.UI.WebControls.Button btnSendOTP;
 
         /// <summary>
-        /// txtPasswordId control.
+        /// txtTwoFactorAuth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPasswordId;
+        protected global::System.Web.UI.WebControls.TextBox txtTwoFactorAuth;
 
         /// <summary>
-        /// btnLogin control.
+        /// btnAuthVerify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnAuthVerify;
 
         /// <summary>
-        /// lnkForgotPassword control.
+        /// hdnLatitude control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkForgotPassword;
+        protected global::System.Web.UI.WebControls.HiddenField hdnLatitude;
+
+        /// <summary>
+        /// hdnLongitude control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnLongitude;
+
+        /// <summary>
+        /// hdnLoginRid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnLoginRid;
     }
 }
