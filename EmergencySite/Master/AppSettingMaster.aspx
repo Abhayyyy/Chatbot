@@ -6,9 +6,6 @@
     AutoEventWireup="true" 
     CodeBehind="AppSettingMaster.aspx.cs" 
     Inherits="EmergencySite.Master.AppSettingMaster" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel 
         ID="UpdatePanel1" 
