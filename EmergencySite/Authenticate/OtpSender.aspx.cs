@@ -7,15 +7,20 @@ using EmergencySite.Core.Functions;
 using EmergencySite.ClassLibraries.Models.Email;
 using System.Collections;
 using EmergencySite.ClassLibraries.BusinessLayer.EmailBal;
+using EmergencySite.Persistence.AddContextRepositories;
 
 namespace EmergencySite.Authenticate
 {
     public partial class Message : Page
     {
-        private readonly IUnitOfWork unitOfWork;
-        public Message(IUnitOfWork unitOfWork)
+        //private readonly IUnitOfWork unitOfWork;
+        private readonly ContextMessageRepository messageRepository;
+        private readonly ContextLoginRepository loginRepository;
+        public Message()
         {
-            this.unitOfWork = unitOfWork;
+            messageRepository = new ContextMessageRepository();
+            loginRepository = new ContextLoginRepository();
+            //this.unitOfWork = unitOfWork;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,7 +49,7 @@ namespace EmergencySite.Authenticate
 
         protected async void btnVerify_Click(object sender, EventArgs e)
         {
-            var content = await unitOfWork.Messages.FindByOTP(txtOtp.Text.Trim());
+            var content = await messageRepository.FindByOTP(txtOtp.Text.Trim());
             if (content == null)
             {
                 ScriptManager.RegisterStartupScript(btnSendOTP, GetType(), "JSCR",
@@ -87,7 +92,7 @@ namespace EmergencySite.Authenticate
 
             // Code for checking user existence.
             var userId = txtEmail.Text.Trim();
-            var loginType = await unitOfWork.Logins.FindByUserName(userId);
+            var loginType = await loginRepository.FindByUserName(userId);
             if (loginType == null)
             {
                 ScriptManager.RegisterStartupScript(btnSendOTP, GetType(), "JSCR",
@@ -116,9 +121,9 @@ namespace EmergencySite.Authenticate
                 Content = otp
             };
 
-            unitOfWork.Messages.Add(message);
+            messageRepository.context.Messages.Add(message);
 
-            await unitOfWork.CompleteAsync();
+            await messageRepository.context.SaveChangesAsync();
 
             var status = isSent ? "success" : "failure";
             var response = new { status, dateTime };
@@ -126,7 +131,7 @@ namespace EmergencySite.Authenticate
             ScriptManager.RegisterStartupScript(btnSendOTP, GetType(), "JSCR",
                                                     "alert('The OTP has been sent and will expire in 10 minutes.');", true);
 
-            await unitOfWork.CompleteAsync();
+            await messageRepository.context.SaveChangesAsync();
         }
     }
 }

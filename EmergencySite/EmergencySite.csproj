@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="BotDetect, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
       <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.dll</HintPath>
     </Reference>
@@ -185,6 +188,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\service4.png" />
     <Content Include="LandingPage.aspx" />
+    <Content Include="Master\AppSettingMaster.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -296,6 +300,13 @@
     <Compile Include="LandingPage.aspx.designer.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Master\AppSettingMaster.aspx.cs">
+      <DependentUpon>AppSettingMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\AppSettingMaster.aspx.designer.cs">
+      <DependentUpon>AppSettingMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202104150513092_CreateLoginTable.cs" />
     <Compile Include="Migrations\202104150513092_CreateLoginTable.designer.cs">
       <DependentUpon>202104150513092_CreateLoginTable.cs</DependentUpon>
@@ -305,9 +316,9 @@
       <DependentUpon>202104150958062_AddAppSettingAndMessageTableToDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Persistence\AddContextRepositories\ContextAppSettingRepository.cs" />
-    <Compile Include="Persistence\AddContextRepositories\ContextMessageRepository.cs" />
-    <Compile Include="Persistence\AddContextRepositories\ContextLoginRepository.cs" />
+    <Compile Include="Persistence\ContextRepositories\ContextAppSettingRepository.cs" />
+    <Compile Include="Persistence\ContextRepositories\ContextMessageRepository.cs" />
+    <Compile Include="Persistence\ContextRepositories\ContextLoginRepository.cs" />
     <Compile Include="Persistence\CoronaDbContext.cs" />
     <Compile Include="Persistence\Repository\AppSettingRepository.cs" />
     <Compile Include="Persistence\Repository\LoginRepository.cs" />

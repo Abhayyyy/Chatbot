@@ -1,4 +1,5 @@
-﻿using EmergencySite.Core.Types;
+﻿using EmergencySite.Core.Models;
+using EmergencySite.Core.Types;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,13 +11,11 @@ namespace EmergencySite.Persistence.AddContextRepositories
 {
     public class ContextAppSettingRepository
     {
-        private readonly CoronaDbContext context;
-
+        public readonly CoronaDbContext context;
         public ContextAppSettingRepository()
         {
             context = new CoronaDbContext();
         }
-
         public async Task<int> Count()
            => await context.AppSettings
            .CountAsync(a => a.SFAuthentication == true);
@@ -33,5 +32,10 @@ namespace EmergencySite.Persistence.AddContextRepositories
                 SFAuthentication = a.SFAuthentication,
             })
             .FirstOrDefaultAsync();
+
+        //public static async Task<AppSetting> GetAppSetting()
+        //{
+        //    return await context.AppSettings.FindAsync();
+        //}
     }
 }
