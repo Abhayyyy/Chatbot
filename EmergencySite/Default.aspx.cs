@@ -40,7 +40,12 @@ namespace EmergencySite
             {
                 if (password != GeneralFunctions.DecryptPassword(userInDb.EncryptedPassword))
                     ScriptManager.RegisterStartupScript(btnLogin, GetType(), "JSCR", "alert('Oops! wrong password., Try again');", true);
-                else Response.Redirect("LandingPage.aspx");
+                else {
+                    Session.Add("Username", txtUsernameId.Text.Trim());
+                    Session.Add("Password", txtPasswordId.Text.Trim());
+                    Response.Redirect("LandingPage.aspx");
+                }
+                
             }
 
             //var login = new Login

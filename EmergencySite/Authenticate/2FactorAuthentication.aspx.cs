@@ -28,7 +28,7 @@ namespace EmergencySite.Authenticate
         {
             if (IsPostBack) return;
 
-            if (Session["UserId"] == null)
+            if (Session["UserName"] == null)
             {
                 Response.Redirect("~/Default.aspx", false);
                 return;

@@ -13,5 +13,15 @@ namespace EmergencySite
         {
 
         }
+
+        protected void lnkChangePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void HeadLoginView_ViewChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace EmergencySite.Persistence
         public DbSet<Login> Logins { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
+        
 
     }
 }

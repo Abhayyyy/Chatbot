@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Images/icon.png" rel="shortcut icon" type="image/ico" />
 
 </head>
 <body>
@@ -37,6 +37,47 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <h1>eBot Edge
+                    </h1>
+                </div>
+                <div class="loginDisplay">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false" OnViewChanged="HeadLoginView_ViewChanged">
+                        <AnonymousTemplate>
+                            [ <a href="~/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a> ]
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>!&nbsp;<asp:UpdatePanel ID="UpdatePanel1" runat="server" RenderMode="Inline">
+                                <ContentTemplate>
+                                    <asp:LinkButton ID="lnkChangePassword" runat="server" OnClick="lnkChangePassword_Click">Change Password</asp:LinkButton>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                            &nbsp;[
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                            LogoutPageUrl="Default.aspx" />
+                            ]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+                <div class="clear hideSkiplink">
+                    <asp:Menu ID="menu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false"
+                        Orientation="Horizontal">
+                        <DataBindings>
+                            <asp:MenuItemBinding DataMember="MenuItem" NavigateUrlField="MenuLink" TextField="MenuName"
+                                ToolTipField="MenuName" />
+                        </DataBindings>
+                    </asp:Menu>
+                    <asp:XmlDataSource ID="xmlDataSource" EnableCaching="false" TransformFile="~/db.xslt"
+                        XPath="MenuItems/MenuItem" runat="server"></asp:XmlDataSource>
+                </div>
+
+            </div>
+        </div>
 
         <%--<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">

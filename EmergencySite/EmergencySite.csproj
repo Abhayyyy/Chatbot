@@ -184,6 +184,10 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\icon.jfif" />
+    <Content Include="Images\icon.png" />
+    <Content Include="Images\icon1.jfif" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\service4.png" />
     <Content Include="LandingPage.aspx" />
     <Content Include="Master\AppSettingMaster.aspx" />
@@ -216,6 +220,8 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Styles\jquery-ui-1.7.2.custom.css" />
+    <Content Include="Styles\Site.css" />
     <Content Include="Testing\TestingFile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
