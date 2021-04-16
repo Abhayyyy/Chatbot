@@ -254,7 +254,6 @@
     <Compile Include="Authenticate\OtpSender.aspx.designer.cs">
       <DependentUpon>OtpSender.aspx</DependentUpon>
     </Compile>
-    <Compile Include="aysnc.cs" />
     <Compile Include="ClassLibraries\BussinessLayer\CommandFunctions\StoreProcedureName.cs" />
     <Compile Include="ClassLibraries\BussinessLayer\EmailBal\EmailBal.cs" />
     <Compile Include="ClassLibraries\DataLayer\DataLayerCommanMethod.cs" />
