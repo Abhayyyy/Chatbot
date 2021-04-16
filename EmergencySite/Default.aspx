@@ -148,10 +148,9 @@
         </div>
     </div>
     <div class="main">
-        <div class="col-md-6 col-sm-12">
             <div class="login-form">
-                <form>
-                    <div class="form-group">
+                <form >
+                    <div class="form-group" >
                         <asp:Label ID="UserId" Font-Bold="true" runat="server" Text="User Name"></asp:Label>
                         <br>
                         <asp:TextBox ID="txtUsernameId" CssClass="form-control" TextMode="Email" runat="server"></asp:TextBox>
@@ -170,9 +169,8 @@
                         ForeColor="White"
                         runat="server"
                         Text="Login"
-                        OnClick="btnLogin_Click" Style="height: 30px; width: 50px" />
+                        OnClick="btnLogin_Click" Style="height: 30px; width: 80px" />
 
-                    <br />
                     <br />
                     <asp:LinkButton ID="lnkForgotPassword" Text="Forgot Password?" OnClick="lnkForgotPassword_Click" runat="server" />
                 </form>
@@ -201,6 +199,12 @@
         .button {
             border-radius: 8px;
         }
+        .login-form{
+            padding: 0% 0% 0% 35% !important;
+        }
+        .form-group {
+    margin-bottom: 34px!important;
+}
 
         .main-head {
             height: 150px;
@@ -211,6 +215,7 @@
             background-color: black;
             background-image:url("~/Images/service4.png");
             width: 100%;
+            height: 100%;
 
         }
 
@@ -249,7 +254,7 @@
             }
 
             .login-form {
-                margin-top: 40%;
+                margin-top: 20%;
             }
 
             .register-form {
