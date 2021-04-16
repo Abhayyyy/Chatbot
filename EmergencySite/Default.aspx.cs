@@ -53,26 +53,6 @@ namespace EmergencySite
 
             Session.Add("Username", txtUsernameId.Text.Trim());
             Session.Add("Password", txtPasswordId.Text.Trim());
-
-            //using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=KLONdb;Integrated Security=True;"))
-            //{
-            //    string username = txtUsernameId.Text.Trim();
-            //    string password = txtPasswordId.Text.Trim();
-
-            //    var EncryptedPassword = GeneralFunctions.EncryptPassword(password);
-
-            //    var currentDateTime = DateTime.Now;
-
-            //    string data = $"INSERT INTO Logins(Username, Password, EncryptedPassword, CreatedAt, ModifiedAt, ModifiedBy) VALUES('{username}', '{password}', '{EncryptedPassword}', '{currentDateTime}', '{currentDateTime}', '{username}')";
-            //    connection.Open();
-            //    SqlCommand cmd = new SqlCommand(data, connection);
-
-            //    cmd.ExecuteNonQuery();
-
-            //    connection.Close();
-
-            //    Response.Redirect("LandingPage.aspx");
-            //}
         }
         protected void lnkForgotPassword_Click(object sender, EventArgs e)
         {

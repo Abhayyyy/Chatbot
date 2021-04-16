@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EmergencySite</RootNamespace>
     <AssemblyName>EmergencySite</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44350</IISExpressSSLPort>
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,8 +71,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
@@ -95,10 +94,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -315,6 +313,10 @@
     <Compile Include="Migrations\202104150958062_AddAppSettingAndMessageTableToDB.designer.cs">
       <DependentUpon>202104150958062_AddAppSettingAndMessageTableToDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104160630060_SeedDataToDB.cs" />
+    <Compile Include="Migrations\202104160630060_SeedDataToDB.designer.cs">
+      <DependentUpon>202104160630060_SeedDataToDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\ContextRepositories\ContextAppSettingRepository.cs" />
     <Compile Include="Persistence\ContextRepositories\ContextMessageRepository.cs" />
@@ -377,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104150958062_AddAppSettingAndMessageTableToDB.resx">
       <DependentUpon>202104150958062_AddAppSettingAndMessageTableToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104160630060_SeedDataToDB.resx">
+      <DependentUpon>202104160630060_SeedDataToDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
