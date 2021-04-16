@@ -278,6 +278,7 @@
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Models\AppSetting.cs" />
     <Compile Include="Core\Models\Login.cs" />
+    <Compile Include="Core\Models\Menu.cs" />
     <Compile Include="Core\Models\Message.cs" />
     <Compile Include="Core\Repository\IAppSettingRepository.cs" />
     <Compile Include="Core\Repository\ILoginRepository.cs" />
@@ -321,6 +322,10 @@
     <Compile Include="Migrations\202104160630060_SeedDataToDB.cs" />
     <Compile Include="Migrations\202104160630060_SeedDataToDB.designer.cs">
       <DependentUpon>202104160630060_SeedDataToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104160747200_CreateMenuTable.cs" />
+    <Compile Include="Migrations\202104160747200_CreateMenuTable.designer.cs">
+      <DependentUpon>202104160747200_CreateMenuTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\ContextRepositories\ContextAppSettingRepository.cs" />
@@ -387,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104160630060_SeedDataToDB.resx">
       <DependentUpon>202104160630060_SeedDataToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104160747200_CreateMenuTable.resx">
+      <DependentUpon>202104160747200_CreateMenuTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
