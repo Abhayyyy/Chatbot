@@ -423,6 +423,10 @@
     <Compile Include="Migrations\202104160747200_CreateMenuTable.designer.cs">
       <DependentUpon>202104160747200_CreateMenuTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104281125520_RemovedConstraintFromLogin.cs" />
+    <Compile Include="Migrations\202104281125520_RemovedConstraintFromLogin.designer.cs">
+      <DependentUpon>202104281125520_RemovedConstraintFromLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\ContextRepositories\ContextAppSettingRepository.cs" />
     <Compile Include="Persistence\ContextRepositories\ContextMessageRepository.cs" />
@@ -491,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104160747200_CreateMenuTable.resx">
       <DependentUpon>202104160747200_CreateMenuTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104281125520_RemovedConstraintFromLogin.resx">
+      <DependentUpon>202104281125520_RemovedConstraintFromLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

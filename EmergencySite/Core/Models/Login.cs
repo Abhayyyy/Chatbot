@@ -20,7 +20,6 @@ namespace EmergencySite.Core.Models
         [StringLength(255)]
         public string Password { get; set; }
 
-        [Required]
         [StringLength(255)]
         public string EncryptedPassword { get; set; }
 
