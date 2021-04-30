@@ -12,12 +12,9 @@ namespace EmergencySite.Persistence
         public CoronaDbContext() : base("name=CoronaDbContext")
         {
         }
-
         public DbSet<Login> Logins { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
         public DbSet<Menu> Menus { get; set; }
-
-
     }
 }

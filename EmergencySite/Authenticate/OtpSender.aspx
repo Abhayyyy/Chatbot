@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>WE-SIS</title>
+    <title>Emergency Site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../Styles/Style.css" rel="stylesheet" type="text/css" />
@@ -12,11 +12,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body style="background:#286090;">
-        <div class="authentication">
+        <div class="authentication" style="padding : 5% 4% 5% 38%;">
             <div class="otp-verification">
-            <p class="">OTP Verification</p>
+            <p class="" style ="color : navajowhite; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size : 160%">OTP VERIFICATION</p>
         
-                <form runat="server">
+                <form runat="server" >
                     <asp:ScriptManager ID="ScriptManager1" runat="server" />
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>

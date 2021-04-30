@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Web.UI;
 using System.Drawing;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using EmergencySite.Core.Functions;
 using EmergencySite.Core;
+using EmergencySite.Persistence.AddContextRepositories;
+using EmergencySite.Persistence;
 
 namespace EmergencySite.Authenticate
 {
     public partial class ChangePassword : Page
     {
-        private readonly IUnitOfWork unitOfWork;
-        public ChangePassword(IUnitOfWork unitOfWork)
+        CoronaDbContext context = new CoronaDbContext();
+        private readonly ContextAppSettingRepository appSettingRepository;
+        private readonly ContextLoginRepository loginRepository;
+        private readonly ContextMessageRepository messageRepository;
+        public ChangePassword()
         {
-            this.unitOfWork = unitOfWork;
+            appSettingRepository = new ContextAppSettingRepository();
+            loginRepository = new ContextLoginRepository();
+            messageRepository = new ContextMessageRepository();
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)
         {
             if (Application["UserName"] == null)
             {
-                Response.Redirect("~/Login.aspx", false);
+                Response.Redirect("~/Default.aspx", false);
                 return;
             }
             txtEmail.Text = Application["UserName"].ToString().Trim();
@@ -35,7 +44,7 @@ namespace EmergencySite.Authenticate
 
             //Code for checking user existence.
             var userId = txtEmail.Text.Trim();
-            var loginType = await unitOfWork.Logins.FindByUserName(userId);
+            var loginType = await loginRepository.FindByUserName(userId);
             if (loginType == null)
             {
                 ScriptManager.RegisterStartupScript(btnUpdate, GetType(), "JSCR",
@@ -45,7 +54,7 @@ namespace EmergencySite.Authenticate
             hdnLoginRid.Value = loginType.LoginId.ToString();
             var loginrid = Convert.ToInt32(hdnLoginRid.Value);
 
-            var login = await unitOfWork.Logins.Get(Convert.ToInt32(loginrid));
+            var login = await loginRepository.FindByLoginId(Convert.ToInt32(loginrid));
 
             var newPassword = txtNewPassword.Text.Trim();
             var confirmPassword = txtConfirmPassword.Text.Trim();
@@ -59,7 +68,8 @@ namespace EmergencySite.Authenticate
 
             login.Password = newPassword;
             login.EncryptedPassword = GeneralFunctions.EncryptPassword(newPassword);
-            await unitOfWork.CompleteAsync();
+            //loginRepository.context.Entry(login).State = EntityState.Modified;
+            await loginRepository.context.SaveChangesAsync();
             ScriptManager.RegisterStartupScript(btnUpdate, GetType(), "JSCR",
                                                     "alert('Password updated successfully.');", true);
             Response.Redirect("~/Default.aspx");

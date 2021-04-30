@@ -1,5 +1,6 @@
 ﻿using EmergencySite.Core.Repository;
 using EmergencySite.Core.Types;
+using EmergencySite.Core;
 using EmergencySite.Persistence.Repository;
 using System;
 using System.Collections.Generic;

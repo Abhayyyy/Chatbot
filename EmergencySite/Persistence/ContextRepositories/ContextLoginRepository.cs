@@ -1,4 +1,8 @@
-﻿using EmergencySite.Core.Types;
+﻿using EmergencySite.Core.Models;
+using EmergencySite.Core.Repository;
+using EmergencySite.Core.Types;
+using EmergencySite.Persistence.Repositories;
+using EmergencySite.Persistence.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,11 +14,11 @@ namespace EmergencySite.Persistence.AddContextRepositories
 {
     public class ContextLoginRepository
     {
-        private readonly CoronaDbContext context;
+        public readonly CoronaDbContext context;
 
         public ContextLoginRepository()
         {
-            context = new CoronaDbContext();
+            this.context = new CoronaDbContext();
         }
         public async Task<LoginType> FindByUserName(string userId)
             => await context.Logins
@@ -25,5 +29,9 @@ namespace EmergencySite.Persistence.AddContextRepositories
                     EncryptedPassword = l.EncryptedPassword
                 })
                 .SingleOrDefaultAsync(l => l.UserName == userId);
+        
+        public async Task<Login> FindByLoginId(int loginId)
+            => await context.Logins
+                .SingleOrDefaultAsync(l => l.LoginId == loginId);
     }
 }

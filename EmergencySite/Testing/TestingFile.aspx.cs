@@ -22,7 +22,7 @@ namespace EmergencySite.Testing
 
         protected void EButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(@"server=(LocalDB)\MSSQLLocalDB; database=dbCorona; integrated security=SSPI;"))
+            using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-27BLE2QB\SQLEXPRESS; database=dbCorona; integrated security=SSPI;"))
             //using (SqlConnection connection = new SqlConnection(@"server=192.168.0.244; database=ebotprod; user id=sa; password=Shoaib!@#123;"))
             {
                 var arrName = new ArrayList();

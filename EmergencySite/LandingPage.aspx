@@ -1,5 +1,6 @@
 ﻿<%@ Page 
     Title="" 
+    Async="true"
     Language="C#" 
     MasterPageFile="~/Site.Master" 
     AutoEventWireup="true" 

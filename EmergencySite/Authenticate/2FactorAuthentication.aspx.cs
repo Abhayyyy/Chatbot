@@ -28,13 +28,13 @@ namespace EmergencySite.Authenticate
         {
             if (IsPostBack) return;
 
-            if (Session["UserName"] == null)
-            {
-                Response.Redirect("~/Default.aspx", false);
-                return;
-            }
+            //if (Session["Username"] == null)
+            //{
+            //    Response.Redirect("~/Default.aspx", false);
+            //    return;
+            //}
 
-            txtUsername.Text = Session["UserId"].ToString().Trim();
+            //txtUsername.Text = Session["Username"].ToString().Trim();
 
             if (Convert.ToBoolean(Session["IsVerified"]))
             {
@@ -83,7 +83,7 @@ namespace EmergencySite.Authenticate
             }
 
             Session["IsVerified"] = true;
-            Response.Redirect("~/Default.aspx", false);
+            Response.Redirect("~/LandingPage.aspx", false);
         }
 
 
