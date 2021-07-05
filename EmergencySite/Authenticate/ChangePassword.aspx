@@ -18,13 +18,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 
-    <body style="background:#286090;">
+    <body style="background:#2d353c;">
         <div class="authentication">
             <div class="otp-verification">
-                <p class="">OTP Verification</p>
+                <p style="color:white; font-size:larger; font-size:x-large; padding-left:45%; margin-top:5%">
+                    Reset Password</p>
             </div>
 
-            <form id="form1" runat="server">
+            <form id="form1" runat="server" style="padding-left:40%; margin-top:5%">
 
                 <asp:Label ID="lblEmail" runat="server" Style="color:#f4efef;" Text="Enter Your E-mail"
                     Font-Bold="True"></asp:Label>
@@ -62,7 +63,7 @@
                     <tr>
                         <asp:Label Text="Security Code :" Font-Bold="true" Font-Size="Larger" runat="server" />
                         <td>
-                            <div style="padding-left: 90px">
+                            <div >
                                 <script>
                                     $(document).ready(function () {
                                         $("a[title ~= 'BotDetect']").removeAttr("style");
@@ -88,6 +89,7 @@
                         </td>
                     </tr>
                 </div>
+        <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
 
                 <%-- <asp:Label Font-Bold="true" CssClass="form-group"
                     Text="Please enter the letters and numbers from the picture below." runat="server" />
@@ -104,7 +106,6 @@
         <asp:HiddenField ID="hdnLatitude" runat="server" />
         <asp:HiddenField ID="hdnLongitude" runat="server" />
         <asp:HiddenField ID="hdnLoginRid" runat="server" />
-        <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
         </form>
         </div>
     </body>

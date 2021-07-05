@@ -61,5 +61,11 @@ namespace EmergencySite
             Application["Username"] = txtUsernameId.Text.Trim();
             Response.Redirect("~/Authenticate/OtpSender.aspx");
         }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegisterMaster.aspx");
+
+        }
     }
 }

@@ -6,14 +6,14 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - COVID-19 Special</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="Images/icon.png" rel="shortcut icon" type="image/ico" />
+    <link href="Images/icon.jfif" rel="shortcut icon" type="image/ico" />
 
 </head>
 <body>
@@ -41,24 +41,31 @@
         <div class="page">
             <div class="header">
                 <div class="title">
-                    <h1>eBot Edge
-                    </h1>
+                    <%--<h1>Emergency Site</h1>--%>
                 </div>
                 <div class="loginDisplay">
                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false" OnViewChanged="HeadLoginView_ViewChanged">
                         <AnonymousTemplate>
-                            [ <a href="~/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a> ]
+                            <%--[ <a href="~/Default.aspx" id="HeadLoginStatus" runat="server">Log Out</a> ]--%>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             Welcome <span class="bold">
                                 <asp:LoginName ID="HeadLoginName" runat="server" />
-                            </span>!&nbsp;<asp:UpdatePanel ID="UpdatePanel1" runat="server" RenderMode="Inline">
+                            </span>!&nbsp;
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server" RenderMode="Inline">
                                 <ContentTemplate>
-                                    <asp:LinkButton ID="lnkChangePassword" runat="server" OnClick="lnkChangePassword_Click">Change Password</asp:LinkButton>
+                                    <asp:LinkButton 
+                                        ID="lnkChangePassword" 
+                                        runat="server" 
+                                        OnClick="lnkChangePassword_Click">Change Password</asp:LinkButton>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                             &nbsp;[
-                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                        <asp:LoginStatus 
+                            ID="HeadLoginStatus" 
+                            runat="server" 
+                            LogoutAction="Redirect" 
+                            LogoutText="Log Out"
                             LogoutPageUrl="Default.aspx" />
                             ]
                         </LoggedInTemplate>

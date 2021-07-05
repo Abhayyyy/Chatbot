@@ -1,8 +1,11 @@
-﻿<%@ Page Async="true" Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EmergencySite._Default" %>
+﻿<%@ Page Async="true" Title="Login Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EmergencySite._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <asp:UpdatePanel 
+        ID="UpdatePanel"
+        runat="server">
+        <ContentTemplate>
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -46,7 +49,7 @@
             <body>
               
                 <div class="main_body">
-                    <div class="loading_text" style="padding-top:20%">
+                    <div class="loading_text" style="padding-top:20%; font-family:cursive">
                         <strong>Emergency Site</strong><br />
 <%--                        <p>Login or register from here to access.</p>--%>
                         Stay Safe</br><strong>Maintain Social Distancing</strong></div>
@@ -150,13 +153,30 @@
     <div class="main">
             <div class="login-form">
                 <form >
-                    <div class="form-group" >
-                        <asp:Label ID="UserId" Font-Bold="true" runat="server" Text="User Name"></asp:Label>
+                    <div class="form-group">
+                        <p style="font-family: monospace; font-size: xx-large; color: currentcolor; margin: 10% 10% 3% 21%;">Login Page</p>
+                        <asp:Label 
+                            ID="UserId" 
+                            runat="server" 
+                            Font-Size="Large"
+                            Text="User Name">
+                        </asp:Label>
                         <br>
-                        <asp:TextBox ID="txtUsernameId" CssClass="form-control" TextMode="Email" runat="server"></asp:TextBox>
+                        <asp:TextBox 
+                            ID="txtUsernameId" 
+                            CssClass="form-control" 
+                            TextMode="Email" 
+                            runat="server">
+                        </asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <asp:Label ID="PasswordId" Font-Bold="true" runat="server" Text="Password"></asp:Label>
+                        <asp:Label 
+                            ID="PasswordId" 
+                            Font-Size="Large"
+                            runat="server" 
+                            Text="Password">
+
+                        </asp:Label>
                         <br>
                         <asp:TextBox ID="txtPasswordId" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
@@ -170,6 +190,18 @@
                         runat="server"
                         Text="Login"
                         OnClick="btnLogin_Click" Style="height: 30px; width: 80px" />
+                    &nbsp;
+                    &nbsp;
+                    <asp:Button
+                        ID="btnRegister"
+                        BackColor="Black"
+                        BorderStyle="None"
+                        CssClass="roundCorner; button"
+                        Font-Bold="false"
+                        ForeColor="White"
+                        runat="server"
+                        Text="Register"
+                        OnClick="btnRegister_Click" Style="height: 30px; width: 80px" />
 
                     <br />
                     <asp:LinkButton ID="lnkForgotPassword" Text="Forgot Password?" OnClick="lnkForgotPassword_Click" runat="server" />
@@ -278,5 +310,8 @@
             color: #fff;
         }
     </style>
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 </asp:Content>

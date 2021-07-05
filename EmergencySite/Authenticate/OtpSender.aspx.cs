@@ -29,7 +29,7 @@ namespace EmergencySite.Authenticate
 
             if (Application["UserName"] == null)
             {
-                Response.Redirect("~/Login.aspx", false);
+                Response.Redirect("~/Default.aspx", false);
                 return;
             }
             txtEmail.Text = Application["UserName"].ToString().Trim();

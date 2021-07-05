@@ -1,4 +1,10 @@
-﻿<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="OtpSender.aspx.cs" Inherits="EmergencySite.Authenticate.Message" %>
+﻿<%@ Page 
+    Title="Reset Password"
+    Language="C#" 
+    Async="true" 
+    AutoEventWireup="true" 
+    CodeBehind="OtpSender.aspx.cs" 
+    Inherits="EmergencySite.Authenticate.Message" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,21 +17,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body style="background:#286090;">
+<body style="background:#2d353c;">
         <div class="authentication" style="padding : 5% 4% 5% 38%;">
             <div class="otp-verification">
-            <p class="" style ="color : navajowhite; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size : 160%">OTP VERIFICATION</p>
+            <p class="" style ="color:white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size : 150%; margin: 17% 1% 29% 6%">
+                OTP VERIFICAITON</p>
         
                 <form runat="server" >
                     <asp:ScriptManager ID="ScriptManager1" runat="server" />
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
-                            <div>
+                            <div style="margin-top:-26%">
                                 <asp:Label Font-Bold="true" Style="color: #f4efef;" Text="Enter your E-mail:" runat="server" />
                                 <asp:TextBox ID="txtEmail" Width="260px" class="form-control" TextMode="Email" runat="server" />
                                 <asp:RequiredFieldValidator ErrorMessage="Please enter your E-mail." ControlToValidate="txtEmail" ForeColor="Tomato" runat="server" />
                             </div>
-                            <asp:Button ID="btnSendOTP" runat="server" CssClass="button" Text="Send OTP" OnClick="btnSendOTP_Click" OnClientClick="disableButton();" UseSubmitBehavior="false" />
+                            <asp:Button 
+                                ID="btnSendOTP" 
+                                runat="server" 
+                                CssClass="button" 
+                                Text="Send OTP" 
+                                OnClick="btnSendOTP_Click" 
+                                OnClientClick="disableButton();" 
+                                UseSubmitBehavior="false" />
                             <br />
                             <br />
                             <div>

@@ -1,4 +1,5 @@
 ﻿<%@ Page 
+    Title="SFAuthentication"
     Language="C#" 
     AutoEventWireup="true" 
     Async="true" 
@@ -17,17 +18,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
 </head>
-<body style="background:#286090;">
+<body style="background:#2d353c;">
         <div class="authentication">
             <div class="otp-verification">
-            <p class="">Two-Factor Authentication</p>
         </div>
-                <form runat="server">
+
+                <form runat="server" style="margin: 16% 10% 15% 40%; font-family:cursive">
+                    <p class="" style="color:white; font-size:larger;">Two-Factor Authentication</p>
                     <asp:ScriptManager ID="ScriptManager1" runat="server" />
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
                             <div>
-                                <asp:Label Font-Bold="true" Style="color: #f4efef;"  Text="Enter your E-mail:" runat="server" />
+                                <asp:Label Font-Bold="false" Style="color: #f4efef;"  Text="Enter your E-mail:" runat="server" />
                                 <asp:TextBox ID="txtUsername" Width="260px" class="form-control" runat="server" />
                                 <asp:RequiredFieldValidator ErrorMessage="Please enter your E-mail." ControlToValidate="txtUsername" ForeColor="Tomato" runat="server" />
                             </div>

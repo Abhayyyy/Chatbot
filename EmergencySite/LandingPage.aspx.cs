@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace EmergencySite
-{
+{ 
     public partial class LandingPage : System.Web.UI.Page
     {
         private readonly ContextAppSettingRepository appSettingRepository;
